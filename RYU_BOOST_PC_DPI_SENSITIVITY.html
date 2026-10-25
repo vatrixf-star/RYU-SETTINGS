@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RYU BOOST — Gaming Optimizer</title>
+<style>
+:root{color-scheme:dark;--bg:#090b12;--panel:#121622;--panel2:#171d2b;--line:#283146;--text:#f4f7ff;--muted:#9ca8bf;--cyan:#35e0d0;--purple:#8b6cff;--good:#49d69a;--warn:#ffbd59}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -20%,#23204a 0,transparent 35%),var(--bg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text)}
+button,input,select{font:inherit}.app{max-width:1240px;margin:auto;padding:24px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#080b12;font-size:25px;font-weight:1000;box-shadow:0 8px 30px #35e0d033}.brand h1{font-size:20px;letter-spacing:1px;margin:0}.brand p{margin:3px 0 0;color:var(--muted);font-size:12px}.status{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--good);font-size:12px}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-bottom:18px}.card{background:linear-gradient(145deg,#151a28,#10141e);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 12px 35px #0002}.hero-main{position:relative;overflow:hidden;min-height:220px}.hero-main:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#8b6cff20;filter:blur(3px);left:-50px;top:-70px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1.5px}.hero h2{font-size:clamp(25px,4vw,40px);line-height:1.2;margin:12px 0}.hero p{color:var(--muted);max-width:550px;line-height:1.8;font-size:14px}.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;transition:.2s}.btn-primary{background:linear-gradient(100deg,var(--cyan),#9b8aff);color:#091018}.btn-secondary{background:#20283a;color:var(--text);border:1px solid var(--line)}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}.score-wrap{display:flex;align-items:center;justify-content:center;gap:20px;min-height:170px}.ring{width:140px;height:140px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--cyan) 0 78%,#283146 78% 100%);position:relative;flex-shrink:0}.ring:before{content:"";position:absolute;inset:9px;border-radius:50%;background:#121622}.ring div{position:relative;text-align:center}.ring strong{font-size:35px;display:block}.ring small{color:var(--muted)}.score-copy h3{margin:0 0 8px}.score-copy p{font-size:13px;margin:0;line-height:1.7}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:26px 0 12px}.section-head h2{font-size:19px;margin:0}.section-head span{font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:17px;background:var(--panel);border:1px solid var(--line);border-radius:16px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.stat-icon{color:var(--cyan);font-size:18px}.stat strong{display:block;font-size:21px;margin:13px 0 4px;direction:ltr;text-align:right}.stat small{color:var(--muted);font-size:11px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}.setting{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid #252d40}.setting:last-child{border:0}.setting strong{font-size:14px}.setting p{font-size:12px;color:var(--muted);margin:4px 0 0;line-height:1.6}.pill{background:#1b3440;color:var(--cyan);border:1px solid #28525c;border-radius:9px;padding:7px 10px;font-size:12px;white-space:nowrap;height:max-content}.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}.field select,.field input{width:100%;background:#0c1019;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px;outline:none}.field input[type=range]{padding:0;accent-color:var(--cyan)}.value{color:var(--cyan);font-weight:800}.wide{grid-column:1/-1}.recommendation{background:linear-gradient(110deg,#153331,#211b3b);border:1px solid #2b615c;border-radius:15px;padding:16px;line-height:1.8;font-size:13px}.footer{color:var(--muted);font-size:11px;line-height:1.8;margin:22px 4px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#172b2b;border:1px solid #36786e;border-radius:12px;padding:12px 18px;display:none;z-index:9;box-shadow:0 8px 25px #0008}.toast.show{display:block}.tag{font-size:10px;border:1px solid var(--line);border-radius:7px;padding:4px 7px;color:var(--muted)}
+.mobile-panel{margin-top:16px}
+.mobile-note{font-size:12px;line-height:1.8;color:var(--muted);margin:10px 0 0}
+.mobile-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mobile-fields .field{min-width:0}
+@media(max-width:800px){.mobile-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.mobile-fields{grid-template-columns:1fr}}
+
+@media(max-width:800px){.app{padding:14px}.hero,.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.score-wrap{justify-content:flex-start}.top{align-items:flex-start}.status{max-width:130px;text-align:center}.card{padding:17px}.controls{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.controls{grid-template-columns:1fr}.score-wrap{gap:12px}.ring{width:112px;height:112px}.ring strong{font-size:28px}.hero-actions .btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+ <div class="brand"><div class="logo">R</div><div><h1>RYU <span style="color:var(--cyan)">BOOST</span></h1><p>FREE FIRE PERFORMANCE LAB</p></div></div>
+ <div class="status">● نسخة تجريبية تفاعلية</div>
+</header>
+<section class="hero">
+ <div class="card hero-main">
+  <div class="eyebrow">SMART GAMING OPTIMIZER</div>
+  <h2>خلي جهازك جاهز<br>لأفضل تجربة لعب.</h2>
+  <p>اضغط زر الفحص ليكتشف نوع جهازك والمعلومات المتاحة تلقائياً ويقترح إعدادات مبدئية للحساسية من غير ما تكتب مواصفاتك بإيدك.</p>
+  <div class="hero-actions"><button class="btn btn-primary" id="analyze">افحص جهازي واقترح الحساسية</button><button class="btn btn-secondary" id="copy">نسخ التوصيات</button></div>
+ </div>
+ <div class="card score-wrap"><div class="ring"><div><strong id="score">78</strong><small>تقييم مبدئي</small></div></div><div class="score-copy"><h3>جاهزية اللعب</h3><p id="scoreText">التقييم الحالي تقديري. شغّل التحليل لمعرفة البيانات التي يسمح المتصفح بقراءتها.</p><p style="margin-top:12px"><span class="tag">لا تغييرات تلقائية</span></p></div></div>
+</section>
+<div class="section-head"><h2>معلومات الجهاز</h2><span id="deviceType">بانتظار التحليل</span></div>
+<section class="stats">
+ <div class="stat"><div class="stat-top"><span>المعالج / المنصة</span><span class="stat-icon">⌘</span></div><strong id="cpu">غير متاح</strong><small>معلومات المتصفح المحدودة</small></div>
+ <div class="stat"><div class="stat-top"><span>الذاكرة</span><span class="stat-icon">▦</span></div><strong id="ram">غير متاح</strong><small>قد لا يعرض المتصفح كامل الرام</small></div>
+ <div class="stat"><div class="stat-top"><span>دقة الشاشة</span><span class="stat-icon">▣</span></div><strong id="screen">—</strong><small>دقة نافذة العرض</small></div>
+ <div class="stat"><div class="stat-top"><span>المتصفح</span><span class="stat-icon">◎</span></div><strong id="browser">—</strong><small>ليس بديلاً عن فحص النظام</small></div>
+</section>
+<div class="section-head"><h2>إعدادات Free Fire المقترحة</h2><span>توصيات قابلة للتخصيص</span></div>
+<section class="layout">
+ <div class="card">
+  <div class="setting"><div><strong>الجرافيك</strong><p>ابدأ بإعداد خفيف للأجهزة الضعيفة، وارفعه تدريجياً لو الأداء ثابت.</p></div><span class="pill" id="graphicsOut">Smooth</span></div>
+  <div class="setting"><div><strong>معدل الإطارات</strong><p>اختار أعلى معدل مدعوم فعلياً داخل اللعبة والجهاز.</p></div><span class="pill" id="fpsOut">High / حسب الدعم</span></div>
+  <div class="setting"><div><strong>الظلال والمؤثرات</strong><p>تقليل المؤثرات قد يساعد على ثبات الأداء.</p></div><span class="pill">منخفضة</span></div>
+  <div class="setting"><div><strong>DPI / الحساسية</strong><p>ابدأ بقيمة معتدلة واختبرها في التدريب؛ لا توجد قيمة مثالية للجميع.</p></div><span class="pill" id="dpiOut">حسب الجهاز</span></div>
+ </div>
+ <div class="card">
+  <h3 style="margin-top:0">خصّص ملف التوصيات</h3>
+  <div class="controls">
+   <div class="field"><label>نوع الجهاز</label><select id="platform"><option value="pc">كمبيوتر / محاكي</option><option value="android">أندرويد</option><option value="ios">iPhone / iPad</option></select></div>
+   <div class="field"><label>قوة الجهاز التقريبية</label><select id="tier"><option value="low">اقتصادي / ضعيف</option><option value="mid" selected>متوسط</option><option value="high">قوي</option></select></div>
+   <div class="field"><label>المحاكي</label><select id="emulator"><option>BlueStacks</option><option>GameLoop</option><option>LDPlayer</option><option>MEmu</option><option>محاكي آخر</option><option>لا أستخدم محاكي</option></select></div>
+   <div id="pcOnlyFields" class="controls wide" style="grid-column:1/-1;padding:0;margin:0">
+    <div class="field"><label for="pcCPU">معالج الكمبيوتر</label><select id="pcCPU"><option value="i3">Intel Core i3</option><option value="i5" selected>Intel Core i5</option><option value="i7">Intel Core i7</option><option value="i9">Intel Core i9</option><option value="r3">AMD Ryzen 3</option><option value="r5">AMD Ryzen 5</option><option value="r7">AMD Ryzen 7</option><option value="r9">AMD Ryzen 9</option><option value="other">معالج آخر / مش عارف</option></select></div>
+    <div class="field"><label for="pcRAM">رام الكمبيوتر</label><select id="pcRAM"><option value="4">4 GB أو أقل</option><option value="8" selected>8 GB</option><option value="16">16 GB</option><option value="32">32 GB</option><option value="64">64 GB أو أكثر</option></select></div>
+    <div class="field"><label for="pcGPU">كارت الشاشة</label><select id="pcGPU"><option value="integrated">مدمج / Intel UHD</option><option value="gtx">NVIDIA GeForce GTX</option><option value="rtx">NVIDIA GeForce RTX</option><option value="radeon">AMD Radeon</option><option value="unknown">مش عارف / كارت آخر</option></select></div>
+    <div class="field"><label for="pcMouseDPI">DPI الماوس المقترح: <span class="value" id="pcMouseDPIVal">800</span></label><input type="range" id="pcMouseDPI" min="400" max="1600" step="100" value="800"><p class="mobile-note">ابدأ بـ 800 DPI كتجربة، وعدّل حسب راحتك وبرنامج الماوس.</p></div>
+    <div class="field"><label for="emuDPI">DPI المحاكي المقترح: <span class="value" id="emuDPIVal">240</span></label><input type="range" id="emuDPI" min="160" max="320" step="20" value="240"><p class="mobile-note">قيمة بداية للمحاكي وليست إعداداً يُطبّق تلقائياً.</p></div>
+    <div class="field wide"><label for="emuResolution">دقة المحاكي المقترحة</label><select id="emuResolution"><option value="1280x720">1280 × 720 — أداء أخف</option><option value="1600x900" selected>1600 × 900 — متوازن</option><option value="1920x1080">1920 × 1080 — صورة أوضح إذا كان الجهاز قويًا</option></select></div>
+    <div class="field wide"><label for="pcGeneral">حساسية عامة (General): <span class="value" id="pcGeneralVal">100</span></label><input type="range" id="pcGeneral" min="1" max="200" value="100"></div>
+    <div class="field"><label for="pcRedDot">Red Dot: <span class="value" id="pcRedDotVal">90</span></label><input type="range" id="pcRedDot" min="1" max="200" value="90"></div>
+    <div class="field"><label for="pc2x">منظار 2x: <span class="value" id="pc2xVal">85</span></label><input type="range" id="pc2x" min="1" max="200" value="85"></div>
+    <div class="field"><label for="pc4x">منظار 4x: <span class="value" id="pc4xVal">75</span></label><input type="range" id="pc4x" min="1" max="200" value="75"></div>
+    <div class="field"><label for="pcSniper">القناص: <span class="value" id="pcSniperVal">50</span></label><input type="range" id="pcSniper" min="1" max="200" value="50"></div>
+    <div class="field wide"><label for="pcFireSize">حجم زرار الضرب في الكمبيوتر: <span class="value" id="pcFireSizeVal">50</span> / 100</label><input type="range" id="pcFireSize" min="1" max="100" value="50"><p class="mobile-note">حجم الزر هنا قيمة محفوظة داخل البرنامج؛ لا تغيّر واجهة اللعبة تلقائيًا.</p></div>
+    <div class="field wide"><button type="button" class="btn btn-secondary" id="savePCSettings">حفظ إعدادات الكمبيوتر</button></div>
+   </div>
+   <div class="field"><label>هدف اللعب</label><select id="goal"><option value="performance">أعلى ثبات وأداء</option><option value="balanced">توازن أداء وجودة</option><option value="quality">جودة صورة أعلى</option></select></div>
+   <div class="field wide"><label>حساسية X — أفقية: <span class="value" id="xVal">1.00</span></label><input type="range" id="x" min=".2" max="2" step=".05" value="1"></div>
+   <div class="field wide"><label>حساسية Y — رأسية: <span class="value" id="yVal">0.85</span></label><input type="range" id="y" min=".2" max="2" step=".05" value=".85"></div>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn btn-primary" id="generate">توليد أفضل توصية</button><button class="btn btn-secondary" id="reset">إعادة ضبط</button></div>
+ </div>
+</section>
+
+<div class="section-head"><h2>إعدادات الموبايل 📱</h2><span>مواصفات الهاتف وDPI والحساسية</span></div>
+<section class="card mobile-panel">
+ 
+ <div class="field wide" style="margin-bottom:14px">
+  <label for="phoneBrand">ماركة الموبايل</label>
+  <select id="phoneBrand">
+   <option value="Samsung">Samsung</option><option value="Xiaomi">Xiaomi / Redmi / POCO</option>
+   <option value="OPPO">OPPO</option><option value="realme">realme</option>
+   <option value="vivo">vivo</option><option value="Infinix">Infinix</option>
+   <option value="TECNO">TECNO</option><option value="Huawei">Huawei</option>
+   <option value="iPhone">iPhone</option><option value="Other">ماركة أخرى</option>
+  </select>
+  <label for="phoneModel" style="display:block;margin-top:12px">موديل الموبايل بالتحديد</label>
+  <input id="phoneModel" type="text" placeholder="مثال: Galaxy A15 أو Redmi Note 13">
+  <p class="mobile-note">الفحص التلقائي قد لا يكشف اسم الموديل أو الرام الفعلية؛ لو كانت المعلومة غير متاحة هنستخدم ملفاً عاماً كبداية من غير ما تحتاج تكتبها.</p>
+ </div>
+<div class="mobile-fields">
+  <div class="field"><label for="phoneOS">نظام الهاتف</label><select id="phoneOS"><option value="android">Android</option><option value="ios">iPhone / iOS</option></select></div>
+  <div class="field"><label for="phoneRAM">رام الهاتف</label><select id="phoneRAM"><option value="3">3 GB أو أقل</option><option value="4">4 GB</option><option value="6" selected>6 GB</option><option value="8">8 GB</option><option value="12">12 GB أو أكثر</option></select></div>
+  <div class="field"><label for="phoneRefresh">معدل تحديث الشاشة</label><select id="phoneRefresh"><option value="60">60 Hz</option><option value="90">90 Hz</option><option value="120" selected>120 Hz</option><option value="144">144 Hz أو أكثر</option><option value="unknown">مش عارف</option></select></div>
+  <div class="field"><label for="phoneTier">قوة الهاتف حسب استخدامك</label><select id="phoneTier"><option value="low">اقتصادي / قديم</option><option value="mid" selected>متوسط</option><option value="high">قوي / فلاجشيب</option></select></div>
+  <div class="field"><label for="phoneGoal">أولوية اللعب</label><select id="phoneGoal"><option value="smooth" selected>سلاسة وثبات FPS</option><option value="balanced">توازن</option><option value="visual">جودة صورة</option></select></div>
+  <div class="field wide"><label for="phoneDPI">DPI / كثافة العرض المقترحة: <span class="value" id="phoneDPIVal">420</span></label><input type="range" id="phoneDPI" min="320" max="600" step="10" value="420"><p class="mobile-note">القيمة هنا اقتراح يدوي فقط، وليست قراءة فعلية أو تغيير تلقائي. تغيير DPI في أندرويد يؤثر على حجم عناصر الواجهة وليس قوة المعالج أو FPS، وiPhone لا يتيح إعداد DPI مماثلاً بالطريقة نفسها.</p></div>
+  <div class="field"><label for="phoneSens">حساسية عامة مقترحة</label><select id="phoneSens"><option value="low">هادية / تحكم أدق</option><option value="mid" selected>متوسطة</option><option value="high">سريعة</option></select></div>
+  <div class="field"><label for="phoneAim">أسلوب التصويب</label><select id="phoneAim"><option value="balanced" selected>متوازن</option><option value="close">قتال قريب</option><option value="precision">دقة وتحكم</option></select></div>
+ </div>
+ <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn btn-primary" id="phoneGenerate">توليد إعدادات الموبايل</button><button class="btn btn-secondary" id="phoneDetect">قراءة معلومات المتصفح</button></div>
+ <div class="recommendation" id="phoneRecommendation" style="margin-top:14px">اضغط «افحص جهازي واقترح الحساسية» ليجهّز البرنامج اقتراحاً مبدئياً تلقائياً.</div>
+</section>
+
+<div class="section-head"><h2>التوصية المخصصة</h2><span>لا يتم تطبيق أي تغيير على جهازك</span></div>
+<div class="recommendation" id="recommendation">اختار نوع جهازك وقوته ثم اضغط «توليد أفضل توصية» لعرض إعدادات مبدئية مناسبة.</div>
+<div class="section-head"><h2>تحسين آمن للنظام</h2><span>قابل للتراجع دائماً</span></div>
+<section class="layout">
+ <div class="card"><div class="setting"><div><strong>إغلاق التطبيقات الخلفية غير الضرورية</strong><p>إجراء يدوي من إعدادات النظام؛ راجع التطبيقات قبل إغلاقها.</p></div><span class="pill">يدوي</span></div><div class="setting"><div><strong>تحديث تعريف كارت الشاشة</strong><p>نزّل التعريف من موقع الشركة المصنّعة الرسمي فقط.</p></div><span class="pill">موصى به</span></div><div class="setting"><div><strong>الطاقة وحرارة الجهاز</strong><p>استخدم وضع الأداء عند الحاجة مع تهوية جيدة، وتجنب تعطيل وسائل الحماية.</p></div><span class="pill">آمن</span></div></div>
+ <div class="card"><div class="setting"><div><strong>Registry / ملفات النظام</strong><p>هذه النسخة لا تعدّل الريجستري. يلزم فحص نسخة ويندوز والجهاز وإنشاء نسخة احتياطية قبل أي تغيير.</p></div><span class="pill" style="color:var(--warn);border-color:#5d4828;background:#2c2417">محمي</span></div><div class="setting"><div><strong>تحليل GPU وحرارة المعالج</strong><p>المتصفح وحده لا يستطيع قراءة كل هذه الحساسات. يلزم تطبيق أصلي بصلاحيات مناسبة.</p></div><span class="pill">يتطلب تطبيقاً أصلياً</span></div></div>
+</section>
+<p class="footer">تنبيه: هذه واجهة أولية تعمل داخل المتصفح وليست تطبيقاً أصلياً مثبتاً على ويندوز أو أندرويد. بيانات المعالج والرام وكارت الشاشة وحرارة الجهاز قد تكون غير متاحة أو محدودة في المتصفح. قيم X/Y هنا إعدادات مقترحة للمحاكي وليست تعديلاً مباشراً لملفاته. لا يوجد ضمان لزيادة FPS أو دقة التصويب، وتجنب أي تعديل قد يخالف شروط اللعبة.</p>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+function detectProfile(){
+ const ua=navigator.userAgent||'';
+ const isAndroid=/Android/i.test(ua), isIOS=/iPhone|iPad|iPod/i.test(ua), isMobile=isAndroid||isIOS||/Mobile/i.test(ua);
+ const cores=Number(navigator.hardwareConcurrency)||0;
+ const mem=Number(navigator.deviceMemory)||0; // Browser-reported estimate only, not full physical RAM.
+ let tier='mid';
+ if((mem>0&&mem<=3)||(cores>0&&cores<=4)) tier='low';
+ else if((mem>=8&&cores>=8)||(cores>=12)) tier='high';
+ $('platform').value=isAndroid?'android':isIOS?'ios':'pc';
+ $('tier').value=tier;
+ $('pcCPU').value='other'; $('pcGPU').value='unknown';
+ if(mem>0){const ramOptions=[4,8,16,32,64];let nearest=ramOptions.reduce((a,b)=>Math.abs(b-mem)<Math.abs(a-mem)?b:a);$('pcRAM').value=String(nearest);}
+ $('phoneOS').value=isIOS?'ios':'android';
+ if(mem>0){const ramOptions=[3,4,6,8,12];let nearest=ramOptions.reduce((a,b)=>Math.abs(b-mem)<Math.abs(a-mem)?b:a);$('phoneRAM').value=String(nearest);}
+ $('phoneTier').value=tier;
+ $('phoneRefresh').value='unknown';
+ $('phoneBrand').value=isIOS?'iPhone':'Other';
+ $('phoneModel').value='';
+ $('phoneSens').value='mid'; $('phoneAim').value='balanced'; $('phoneGoal').value='smooth';
+ // A reasonable starting profile, not a measurement of a player's aim or game settings.
+ const base=tier==='low'?{g:115,r:105,two:95,four:80,s:45,fire:48,x:.9,y:.8}:tier==='high'?{g:145,r:135,two:120,four:105,s:65,fire:42,x:1.05,y:.9}:{g:130,r:120,two:108,four:92,s:55,fire:45,x:1,y:.85};
+ const pcVals={pcGeneral:base.g,pcRedDot:base.r,pc2x:base.two,pc4x:base.four,pcSniper:base.s,pcFireSize:base.fire,pcMouseDPI:tier==='high'?1000:800,emuDPI:tier==='low'?200:tier==='high'?280:240};
+ Object.entries(pcVals).forEach(([id,v])=>{$(id).value=v;$(id+'Val').textContent=v;});
+ $('x').value=base.x; $('y').value=base.y; $('xVal').textContent=base.x.toFixed(2); $('yVal').textContent=base.y.toFixed(2);
+ $('deviceType').textContent=(isAndroid?'أندرويد':isIOS?'iPhone / iPad':isMobile?'موبايل':'كمبيوتر / متصفح')+' • تم الفحص';
+ $('cpu').textContent=cores?`${cores} أنوية منطقية`:'غير متاح';
+ $('ram').textContent=mem?`تقدير المتصفح: ${mem} GB`:'غير متاح';
+ $('screen').textContent=`${screen.width} × ${screen.height}`;
+ $('browser').textContent=/Edg/i.test(ua)?'Edge':/Chrome/i.test(ua)?'Chrome':/Firefox/i.test(ua)?'Firefox':/Safari/i.test(ua)?'Safari':'متصفح';
+ $('score').textContent=tier==='low'?'55':tier==='high'?'88':'72';
+ $('scoreText').textContent=`ملف بداية ${tier==='low'?'اقتصادي':tier==='high'?'قوي':'متوسط'} مبني على ${cores?cores+' أنوية منطقية':'بيانات متاحة محدودة'}${mem?' وتقدير ذاكرة '+mem+' GB':''}. اسم المعالج وكارت الشاشة الحقيقيان قد لا يكونان متاحين.`;
+ togglePCFields();
+ if(isMobile){generatePhone();}else{generate();}
+ const note=$('recommendation');
+ toast('تم فحص المعلومات المتاحة وتجهيز حساسية مبدئية');
+}
+function analyze(){detectProfile();}
+function generate(){
+ const p=$('platform').value,t=$('tier').value,g=$('goal').value,em=$('emulator').value,x=+$('x').value,y=+$('y').value;
+ const pcCPU=$('pcCPU').value,pcRAM=+$('pcRAM').value,pcGPU=$('pcGPU').value;
+ let graphics=t==='low'?'Smooth':t==='mid'?(g==='quality'?'Standard':'Smooth'):(g==='quality'?'Ultra إن كان مدعوماً':'Standard / Smooth حسب الثبات');
+ let fps=t==='low'?'أقل معدل ثابت مدعوم':t==='mid'?'High إن كان متاحاً':'أعلى معدل مدعوم مع مراقبة الحرارة';
+ let dpi=p==='android'?'ابدأ بكثافة النظام الأصلية':p==='ios'?'اترك كثافة النظام كما هي':'DPI الماوس والمحاكي المقترحان معروضان في إعدادات الكمبيوتر';
+ $('graphicsOut').textContent=graphics;$('fpsOut').textContent=fps;$('dpiOut').textContent=dpi;
+ const xText=x.toFixed(2),yText=y.toFixed(2);
+ let device=p==='pc'?`الكمبيوتر / المحاكي (${em})`:p==='android'?'أندرويد':'iPhone / iPad';
+ let goal=g==='performance'?'الأداء والثبات':g==='balanced'?'التوازن':'جودة الصورة';
+ const cpuNames={i3:'Intel Core i3',i5:'Intel Core i5',i7:'Intel Core i7',i9:'Intel Core i9',r3:'AMD Ryzen 3',r5:'AMD Ryzen 5',r7:'AMD Ryzen 7',r9:'AMD Ryzen 9',other:'غير محدد'};
+ const gpuNames={integrated:'مدمج / Intel UHD',gtx:'NVIDIA GeForce GTX',rtx:'NVIDIA GeForce RTX',radeon:'AMD Radeon',unknown:'غير محدد'};
+ const pcDetails=p==='pc'?`<br>• معالج الكمبيوتر: ${cpuNames[pcCPU]} — الرام: ${pcRAM} GB — كارت الشاشة: ${gpuNames[pcGPU]}.<br>• المحاكي: ${em}.` : '';
+ const pcSensText=p==='pc'?`<br>• حساسية اللعبة المقترحة: General ${$('pcGeneral').value}، Red Dot ${$('pcRedDot').value}، 2x ${$('pc2x').value}، 4x ${$('pc4x').value}، قناص ${$('pcSniper').value}.<br>• DPI الماوس: ${$('pcMouseDPI').value} — DPI المحاكي: ${$('emuDPI').value} — دقة المحاكي: ${$('emuResolution').value}.<br>• حجم زر الضرب: ${$('pcFireSize').value}/100 (توصية؛ اضبطه داخل إعدادات HUD في اللعبة/المحاكي).`:'';
+ $('recommendation').innerHTML=`<strong>${device} — الهدف: ${goal}</strong>${pcDetails}${pcSensText}<br>• الجرافيك: ${graphics}.<br>• الإطارات: ${fps}.<br>• حساسية X الأفقية: ${xText} — حساسية Y الرأسية: ${yText} (نقطة بداية تجريبية فقط؛ اضبطها من إعدادات المحاكي المدعومة).<br>• DPI: ${dpi}.<br>• اختبر في ساحة التدريب وعدّل خطوة صغيرة كل مرة. إذا ظهر تقطيع أو سخونة، خفّض الإعدادات وأعد الاختبار.<br>• لم يتم تعديل ملفات اللعبة أو Registry أو إعدادات النظام.`;
+ toast('تم توليد التوصية');
+}
+
+
+function generatePhone(){
+ const os=$('phoneOS').value,brand=$('phoneBrand').value,model=$('phoneModel').value.trim();
+ const ram=+$('phoneRAM').value,refresh=$('phoneRefresh').value;
+ const tier=$('phoneTier').value,goal=$('phoneGoal').value,dpi=+$('phoneDPI').value,sens=$('phoneSens').value,aim=$('phoneAim').value;
+ const modelText=(brand+' '+model).toLowerCase();
+ // Model-family heuristics only choose a starting profile; they are not a live device database.
+ let tierGuess=tier;
+ if(/iphone (1[3-9]|[2-9][0-9])|s2[3-9]|s2[4-9]|s2[5-9]|redmi note 1[3-9]|poco f[5-9]|realme gt|reno 1[1-9]|infinix gt/i.test(modelText)) tierGuess='high';
+ else if(/galaxy a0[0-5]|redmi a|redmi 1[0-2]|oppo a1[0-7]|realme c[0-9]|spark go|smart [0-9]/i.test(modelText)) tierGuess='low';
+ const effectiveTier=tierGuess;
+ let graphics=effectiveTier==='low'||ram<=3?'Smooth / أقل مؤثرات':effectiveTier==='mid'?'Smooth أو Standard حسب الثبات':'Standard أو أعلى إذا كان مدعوماً وثابتاً';
+ if(goal==='visual'&&effectiveTier==='high'&&ram>=8) graphics='Standard / أعلى خيار ثابت ومدعوم';
+ let fps=effectiveTier==='low'||ram<=3?'ابدأ بأقل معدل ثابت متاح':refresh==='unknown'?'اختر أعلى معدل تعرضه اللعبة ويظل ثابتاً':`جرّب معدل إطارات لا يتجاوز دعم اللعبة والشاشة (${refresh} Hz)`;
+ const sensBase=sens==='low'?{general:75,red:68,two:60,four:48,sniper:32,free:55}:sens==='high'?{general:190,red:180,two:165,four:145,sniper:90,free:150}:{general:145,red:135,two:120,four:105,sniper:70,free:100};
+ let vals={...sensBase};
+ if(aim==='close'){vals.general+=10;vals.red+=8;}
+ if(aim==='precision'){vals.general-=12;vals.red-=10;vals.two-=8;vals.four-=8;}
+ if(effectiveTier==='low'){vals.general-=8;vals.red-=8;vals.two-=8;vals.four-=8;}
+ for(const k in vals) vals[k]=Math.max(0,Math.min(200,vals[k]));
+ const dpiAdvice=os==='android'?`ابدأ بتجربة ${dpi} DPI فقط لو كنت مرتاحاً مع تغيير كثافة العرض، وإلا اترك القيمة الافتراضية`:'على iPhone اترك إعدادات العرض الافتراضية؛ لا يوجد خيار DPI عام مماثل لأندرويد';
+ const osName=os==='android'?'Android':'iPhone / iOS';
+ $('phoneRecommendation').innerHTML=`<strong>🎮 إعدادات مقترحة لـ ${model?brand+' '+model:`جهازك المكتشف (${osName})`}</strong><br>
+ <p>دي نقطة بداية قابلة للتعديل، مش حساسية مضمونة لكل لاعب. اختيار الموديل بيساعد في تكوين ملف مبدئي، لكن الصفحة لا تتصل بقاعدة بيانات حية لكل الأجهزة.</p>
+ <div class="mobile-fields" style="margin-top:10px">
+ <div class="field"><label>General</label><div class="value">${vals.general}</div></div>
+ <div class="field"><label>Red Dot</label><div class="value">${vals.red}</div></div>
+ <div class="field"><label>2x Scope</label><div class="value">${vals.two}</div></div>
+ <div class="field"><label>4x Scope</label><div class="value">${vals.four}</div></div>
+ <div class="field"><label>Sniper</label><div class="value">${vals.sniper}</div></div>
+ <div class="field"><label>Free Look</label><div class="value">${vals.free}</div></div></div>
+ <br>• النظام: ${osName} — الرام: ${ram>=12?'12 GB أو أكثر':ram+' GB'}.<br>
+ • الجرافيك: ${graphics}.<br>• الإطارات: ${fps}.<br>• ${dpiAdvice}.<br>
+ <p>جرّب الإعدادات في ساحة التدريب وعدّل 5–10 درجات في كل مرة حسب تحكمك. الحساسية الأفضل بتختلف حسب أسلوب اللعب، حجم الشاشة، وإعدادات اللعبة.</p>`;
+ toast('اتجهزت إعدادات مبدئية حسب موديل الموبايل');
+}
+
+$('phoneBrand').addEventListener('change',()=>{if($('phoneBrand').value==='iPhone')$('phoneOS').value='ios';else $('phoneOS').value='android';});
+
+$('phoneGenerate').addEventListener('click',generatePhone);
+$('phoneDPI').addEventListener('input',()=> $('phoneDPIVal').textContent=$('phoneDPI').value);
+$('phoneOS').addEventListener('change',()=>{if($('phoneOS').value==='ios') $('phoneDPIVal').textContent=$('phoneDPI').value;});
+$('phoneDetect').addEventListener('click',()=>{analyze();const ua=navigator.userAgent;if(/iPhone|iPad|iPod/i.test(ua))$('phoneOS').value='ios';else if(/Android/i.test(ua))$('phoneOS').value='android';toast('قراءة النظام من المتصفح فقط؛ المعالج الفعلي قد لا يكون متاحاً')});
+
+$('analyze').addEventListener('click',analyze);$('generate').addEventListener('click',generate);
+function togglePCFields(){ $('pcOnlyFields').style.display=$('platform').value==='pc'?'grid':'none'; }
+$('platform').addEventListener('change',togglePCFields);togglePCFields();
+$('x').addEventListener('input',()=> $('xVal').textContent=(+$('x').value).toFixed(2));
+$('y').addEventListener('input',()=> $('yVal').textContent=(+$('y').value).toFixed(2));
+const pcRangeIds=['pcGeneral','pcRedDot','pc2x','pc4x','pcSniper','pcFireSize','pcMouseDPI','emuDPI'];
+pcRangeIds.forEach(id=>$(id).addEventListener('input',()=>$(id+'Val').textContent=$(id).value));
+function savePCSettings(){const settings={};pcRangeIds.forEach(id=>settings[id]=$(id).value);try{localStorage.setItem('ryuBoostPCSettings',JSON.stringify(settings));toast('تم حفظ إعدادات الكمبيوتر على هذا المتصفح')}catch(e){toast('تعذر حفظ الإعدادات في هذا المتصفح')}}
+$('savePCSettings').addEventListener('click',savePCSettings);
+try{const saved=JSON.parse(localStorage.getItem('ryuBoostPCSettings')||'null');if(saved){pcRangeIds.forEach(id=>{if(saved[id]!==undefined){$(id).value=saved[id];$(id+'Val').textContent=saved[id]}})}}catch(e){}
+$('reset').addEventListener('click',()=>{$('platform').value='pc';$('tier').value='mid';$('emulator').selectedIndex=0;$('goal').value='performance';$('x').value=1;$('y').value=.85;$('xVal').textContent='1.00';$('yVal').textContent='.85';pcRangeIds.forEach(id=>{const defaults={pcGeneral:100,pcRedDot:90,pc2x:85,pc4x:75,pcSniper:50,pcFireSize:50,pcMouseDPI:800,emuDPI:240};$(id).value=defaults[id];$(id+'Val').textContent=defaults[id]});$('emuResolution').value='1600x900';generate();toast('تمت إعادة الضبط')});
+$('copy').addEventListener('click',async()=>{const text=$('recommendation').innerText;try{await navigator.clipboard.writeText(text);toast('تم نسخ التوصية')}catch(e){toast('ميزة النسخ غير متاحة في هذا السياق')}});
+generate();
+generatePhone();
+</script>
+</body>
+</html>
